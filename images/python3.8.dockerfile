@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-LABEL MAINTAINER="Infinity Management <rami.safari@infinitymgt.fr>"
+LABEL MAINTAINER="Rami Sfari <rami2gmail@gamil.com>"
 
 # Install required packages and remove the apt packages cache when done.
 RUN apt update \
@@ -11,9 +11,8 @@ RUN apt update \
 	supervisor \
   && apt-get clean
 
-# Install pipenv
-RUN pip install pipenv
-
+# Which uWSGI .ini file should be used, to make it customizable
+ENV UWSGI_INI /app/uwsgi.ini
 
 # replace nginx config with custom one
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
@@ -29,10 +28,6 @@ RUN groupadd -r www-nginx && useradd -r -g www-nginx nginx
 RUN touch /var/run/nginx.pid && \
   chown -R nginx:www-nginx /var/lib/nginx /var/run/nginx.pid /var/log/nginx
 
-# Tell docker that all future commands should run as the appuser user
-#USER nginx
-
 EXPOSE 8080
 
-# start supervisord
 CMD ["supervisord", "-n"]
