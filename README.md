@@ -9,7 +9,7 @@ Feel free to override the nginx and supervisor files.
 
 ## Supported tags and respective `Dockerfile` links
 
-* [`python3.8`, `latest` _(Dockerfile)_]()
+* [`python3.7`, `python3.8`, `python3.9` _(Dockerfile)_]()
 
 **Docker** image with **Supervisor**, **Python** and **Nginx** for web applications in **Python 3.8** and above, in a single container.
 
@@ -24,7 +24,7 @@ The combination of uWSGI with Nginx is a [common way to deploy Python web applic
 * You shouldn't have to clone the GitHub repo. You should use it as a base image for other images, using this in your `Dockerfile`:
 
 ```Dockerfile
-FROM er5bus/python-nginx:python3.8
+FROM er5bus/python-supervisor-nginx:python3.8
 
 # Your Dockerfile code...
 
