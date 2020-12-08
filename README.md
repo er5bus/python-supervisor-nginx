@@ -1,6 +1,7 @@
-### Python with Nginx image
+### Supervisor, Python with Nginx
 
-This image only containe python, nginx and supervisor.
+This image only containe python, nginx and supervisor. 
+Use it as base image for Monolithic application.
 
 You need to install your server (uwsgi or other)
 
@@ -10,10 +11,7 @@ Feel free to override the nginx and supervisor files.
 
 * [`python3.8`, `latest` _(Dockerfile)_]()
 
-# python-nginx
-
-**Docker** image with **Python** and **Nginx** for web applications in **Python 3.8** and above, in a single container.
-
+**Docker** image with **Supervisor**, **Python** and **Nginx** for web applications in **Python 3.8** and above, in a single container.
 
 ## Description
 
@@ -33,16 +31,11 @@ FROM er5bus/python-nginx:python3.8
 ```
 * Specify your uWSGI config file in `UWSGI_INI` env variable.
 * Specify your nginx configuration
+* Feel free to override supervisor file 
 
 ## Tests
 
 All the image tags, configurations, environment variables are tested.
-
-## Updates
-
-Updates are announced in the releases.
-
-You can click the "watch" button at the top right and select "Releases only" to receive an email notification when there's a new release.
 
 ## License
 
