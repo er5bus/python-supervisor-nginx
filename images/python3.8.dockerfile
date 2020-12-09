@@ -10,3 +10,5 @@ RUN apt update && apt install --no-install-recommends --no-install-suggests -y \
       libpcre3 libpcre3-dev \
       nginx \
       supervisor && rm -rf /var/lib/apt/lists/*
+
+EXPOSE 8080
